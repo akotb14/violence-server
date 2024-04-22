@@ -23,9 +23,9 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 
-app.config['MONGO_URI'] = 'mongodb://localhost:27017/db'
+app.config['MONGO_URI'] = 'mongodb+srv://mcmohand888:33119765@security.aw8optf.mongodb.net/security'
 mongo = MongoClient(app.config['MONGO_URI'])
-boolean_variable_collection = mongo.db.boolean_variable
+boolean_variable_collection = mongo.security.boolean_variable
 
 mongo = PyMongo(app)
 

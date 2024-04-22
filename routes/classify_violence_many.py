@@ -31,7 +31,7 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 app = Flask(__name__)
 
-app.config['MONGO_URI'] = 'mongodb://localhost:27017/security'
+app.config['MONGO_URI'] = 'mongodb+srv://mcmohand888:33119765@security.aw8optf.mongodb.net/security'
 #app.config['UPLOADED_PHOTOS_DEST'] = r'D:\scu\Backend1\uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 

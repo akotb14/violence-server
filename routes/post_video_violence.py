@@ -23,11 +23,11 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 
-app.config['MONGO_URI'] = 'mongodb://localhost:27017/db'
+app.config['MONGO_URI'] = 'mongodb+srv://mcmohand888:33119765@security.aw8optf.mongodb.net/security'
 app.config['UPLOADED_PHOTOS_DEST'] = 'uploads'
 mongo = MongoClient(app.config['MONGO_URI'])
+videos_collection = mongo.security.videos
 mongo = PyMongo(app)
-videos_collection = mongo.db.videos
 
 post_video_bp = Blueprint('post_video', __name__)
 

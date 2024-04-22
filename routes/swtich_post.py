@@ -23,9 +23,9 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 
-app.config['MONGO_URI'] = 'mongodb://localhost:27017/db'
+app.config['MONGO_URI'] = 'mongodb+srv://mcmohand888:33119765@security.aw8optf.mongodb.net/security'
 mongo = MongoClient(app.config['MONGO_URI'])
-boolean_variable_collection = mongo.db.boolean_variable
+boolean_variable_collection = mongo.security.boolean_variable
 
 mongo = PyMongo(app)
 
@@ -45,7 +45,9 @@ def set_variable():
 
     new_value = data['value']
     userid = data['userid']
-    # Update the variable in the MongoDB collection
-    boolean_variable_collection.update_one({'userid': userid}, {'$set': {'value': new_value}}, upsert=True)
+    isActive = data['isActive']
 
-    return jsonify({'message': 'Variable updated successfully', 'variable': new_value, 'userid': userid})
+    # Update the variable in the MongoDB collection
+    boolean_variable_collection.update_one({'userid': userid}, {'$set': {'value': new_value , "isActive" :isActive}}, upsert=True)
+
+    return jsonify({'message': 'Variable updated successfully', 'variable': new_value, 'userid': userid , 'isActive':isActive})
